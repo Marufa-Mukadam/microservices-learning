@@ -15,9 +15,18 @@ app.get ('/posts/:id/comments', (req, res) => {
 app.post ('/posts/:id/comments', (req, res) => {
    const commentId = randomBytes (4).toString ('hex');
     const {content} = req.body;
-    const comments = commentsByPostId [req.params.id] || [];
+    const postId = req.params.id;
+    const comments = commentsByPostId [postId] || [];
     comments.push ({id: commentId, content});
-    commentsByPostId [req.params.id] = comments;
+    commentsByPostId [postId] = comments;
+    axios.post ('http://localhost:4005/events', {
+        type: 'CommentCreated',
+        data: {
+            id: commentId,
+            content,
+            postId: postId
+        }
+    });
     res.status (201).send (comments);
 }
 );
