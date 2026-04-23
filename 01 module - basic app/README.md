@@ -24,6 +24,7 @@ A basic app that shows how microservices work. In this app we have created a Pos
 
 When a user creates a post, the **Posts Service** emits an event to the **Event Bus**. The Event Bus then fans it out by sending a `POST /events` request to every service:
 
+
 - `localhost:4000` → Posts Service
 - `localhost:4001` → Comments Service
 - `localhost:4002` → Query Service
@@ -46,7 +47,7 @@ Each service receives the same event payload:
 ## ✅ Checklist
 
 - [ ] Read/watched the core material
-- [ ] Completed the hands-on exercise
+- [ ] Completed the hands-on exercise of mini project for understanding microservices
 - [ ] Can explain the concept without notes
 - [ ] Code committed and working
 
