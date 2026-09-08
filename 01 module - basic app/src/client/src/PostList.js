@@ -10,7 +10,7 @@ const PostList = () => {
     const res = await axios.get("http://localhost:4002/posts");
 
     setPosts(res.data);
-    console.log(res.data);
+    console.log("jiiiiii",res.data);
   };
 
   useEffect(() => {
