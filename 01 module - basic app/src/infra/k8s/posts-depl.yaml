@@ -44,9 +44,7 @@ spec:
       containers:
         - name: posts
           image: marufamukadam/posts
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 4000
+         
 
 ---
 apiVersion: v1
